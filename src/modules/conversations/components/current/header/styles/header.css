@@ -1,0 +1,25 @@
+.conversations-current-header {
+    display: flex;
+    flex-flow: row nowrap;
+
+    box-sizing: border-box;
+    height: 50px;
+
+    padding: 5px;
+
+    background: #ccc;
+
+    cursor: pointer;
+}
+
+.conversations-current-header__image {
+    width: 40px;
+    height: 40px;
+    background: #222222;
+    border-radius: 50%;
+}
+
+.conversations-current-header__title {
+    height: 30px;
+    padding-left: 10px;
+}

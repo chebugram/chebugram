@@ -1,0 +1,41 @@
+.message-editor {
+    display: flex;
+    flex-flow: row nowrap;
+
+    background: cadetblue;
+}
+
+.message-editor__text-field-wrapper {
+    flex: 1 1 auto;
+}
+
+.message-editor__text-field {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+    padding: 10px;
+    border: 0;
+
+    background: transparent;
+
+    resize: none;
+}
+
+.message-editor__text-field:active,
+.message-editor__text-field:focus {
+    outline: none;
+}
+
+.message-editor__add-button-wrapper {
+    flex: 0 0 auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+}

@@ -1,0 +1,27 @@
+.conversations-list-item {
+    display: flex;
+    flex-flow: row nowrap;
+
+    box-sizing: border-box;
+    height: 50px;
+
+    padding: 5px;
+
+    cursor: pointer;
+}
+
+.conversations-list-item:hover {
+    background: #ccc;
+}
+
+.conversations-list-item__image {
+    width: 30px;
+    height: 30px;
+    background: #222222;
+    border-radius: 50%;
+}
+
+.conversations-list-item__title {
+    height: 30px;
+    padding-left: 10px;
+}

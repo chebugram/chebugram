@@ -1,0 +1,24 @@
+.messages-list-item {
+    display: flex;
+    flex-flow: row nowrap;
+
+    padding: 2px 10px;
+}
+
+.messages-list-item__m-my {
+    justify-content: flex-end;
+}
+
+.messages-list-item__content {
+    background: #ccc;
+    padding: 5px;
+    border-radius: 5px;
+
+    font-size: 14px;
+}
+
+.messages-list-item__time {
+    text-align: right;
+
+    font-size: 13px;
+}

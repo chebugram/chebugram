@@ -1,0 +1,18 @@
+.conversations-current {
+    display: flex;
+    flex-flow: column nowrap;
+
+    height: 100%;
+}
+
+.conversations-current__header {
+    flex: 0 0 auto;
+}
+
+.conversations-current__messages {
+    flex: 1 1 auto;
+}
+
+.conversations-current__footer {
+    flex: 0 0 auto;
+}

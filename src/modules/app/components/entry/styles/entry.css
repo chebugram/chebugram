@@ -1,0 +1,17 @@
+.app-entry {
+	display: flex;
+	flex-flow: row nowrap;
+
+	max-width: 900px;
+	min-height: 400px;
+}
+
+.app-entry__conversations {
+	width: 300px;
+	background: #eee;
+	flex: 0 0 auto;
+}
+
+.app-entry__current-conversation {
+	flex: 1 1 auto;
+}
