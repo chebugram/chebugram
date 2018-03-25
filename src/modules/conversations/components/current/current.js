@@ -27,22 +27,50 @@ export default class ConversationsCurrent extends Component {
 	constructor (props, context) {
 		super(props, context);
 
+		this._messagesEl = null;
+
+		this._scrollToBottom = true;
+
 		this.state = {
 			message: '',
 		};
+	}
+
+	componentWillUnmount () {
+		this._messagesEl = null;
+	}
+
+	componentDidUpdate () {
+		if ( !this._scrollToBottom ) {
+			return;
+		}
+
+		setTimeout(() => {
+			if ( this._messagesEl ) {
+				this._messagesEl.scrollTop = this._messagesEl.scrollTop + this._messagesEl.offsetHeight;
+			}
+		}, 0);
+	}
+
+	_handleMessagesRef = (el) => {
+		this._messagesEl = el;
 	}
 
 	_handleMessageChange = (message) => {
 		this.setState({
 			message: message,
 		});
-	}
+	};
 
 	_handleAddMessage = () => {
 		const {
 			id,
 			onAddMessage,
 		} = this.props;
+
+		if ( this.state.message.trim().length === 0 ) {
+			return;
+		}
 
 		if ( onAddMessage ) {
 			onAddMessage({
@@ -56,6 +84,10 @@ export default class ConversationsCurrent extends Component {
 		}
 	};
 
+	_handleMessageScroll = () => {
+		this._scrollToBottom = (this._messagesEl.scrollTop + this._messagesEl.offsetHeight) === this._messagesEl.scrollHeight;
+	};
+
 	render () {
 		return (
 			<div className={baseCssClass}>
@@ -66,9 +98,15 @@ export default class ConversationsCurrent extends Component {
 						image={this.props.image}
 					/>
 				</div>
-				<div className={messagesCssClass}>
+				<div
+					className={messagesCssClass}
+					ref={this._handleMessagesRef}
+
+					onScroll={this._handleMessageScroll}
+				>
 					<Messages
 						id={this.props.id}
+						type={this.props.type}
 					/>
 				</div>
 

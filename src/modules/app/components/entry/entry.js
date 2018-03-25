@@ -8,6 +8,7 @@ import './styles/entry.css';
 
 
 const baseCssClass = 'app-entry';
+const contentCssClass = `${baseCssClass}__content`;
 const conversationsCssClass = `${baseCssClass}__conversations`;
 const currentConversationCssClass = `${baseCssClass}__current-conversation`;
 
@@ -20,16 +21,18 @@ export default class AppEntry extends Component {
 	render () {
 		return (
 			<div className={baseCssClass}>
-				<div className={conversationsCssClass}>
-					<ConversationsList />
-				</div>
-				{ this.props.currentConversationId && (
-					<div className={currentConversationCssClass}>
-						<ConversationsCurrent
-							id={this.props.currentConversationId}
-						/>
+				<div className={contentCssClass}>
+					<div className={conversationsCssClass}>
+						<ConversationsList />
 					</div>
-				) }
+					{ this.props.currentConversationId && (
+						<div className={currentConversationCssClass}>
+							<ConversationsCurrent
+								id={this.props.currentConversationId}
+							/>
+						</div>
+					) }
+				</div>
 			</div>
 		);
 	}

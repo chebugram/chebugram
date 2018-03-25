@@ -29,11 +29,8 @@ import { combineReducers } from 'redux';
 import {
 	ACTION__CONVERSATIONS__ADD_CONVERSATION,
 	ACTION__CONVERSATIONS__SET_CONVERSATION,
+	ACTION__CONVERSATIONS__UPDATE_CONVERSATION,
 } from '../actions/types';
-
-import {
-	ACTION__MESSAGES__ADD_MESSAGE,
-} from '../../messages/actions/types';
 
 
 /**
@@ -50,17 +47,6 @@ function list (state = {}, action) {
 				[action.payload.id]: action.payload,
 			};
 
-		case ACTION__MESSAGES__ADD_MESSAGE: {
-			const conversationId = action.payload.conversationId;
-			return {
-				...state,
-				[conversationId]: {
-					...state[conversationId],
-					lastUpdate: new Date().valueOf(),
-				},
-			};
-		}
-
 		// WORKAROUND: reset message count to zero every time when open conversation
 		case ACTION__CONVERSATIONS__SET_CONVERSATION: {
 			const conversationId = action.payload;
@@ -72,6 +58,12 @@ function list (state = {}, action) {
 				},
 			};
 		}
+
+		case ACTION__CONVERSATIONS__UPDATE_CONVERSATION:
+			return {
+				...state,
+				[action.payload.id]: action.payload,
+			};
 
 		default:
 			return state;

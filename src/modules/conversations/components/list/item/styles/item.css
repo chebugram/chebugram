@@ -10,6 +10,10 @@
     cursor: pointer;
 }
 
+.conversations-list-item__m-selected {
+    background: #ccc;
+}
+
 .conversations-list-item:hover {
     background: #ccc;
 }

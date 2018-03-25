@@ -10,6 +10,8 @@ const baseCssClass = 'messages-list-item';
 const contentCssClass = `${baseCssClass}__content`;
 const messageCssClass = `${baseCssClass}__message`;
 const timeCssClass = `${baseCssClass}__time`;
+const contactAvatarCssClass = `${baseCssClass}__contact-avatar`;
+const contactNameCssClass = `${baseCssClass}__contact-name`;
 
 
 export default class MessagesListItem extends PureComponent {
@@ -17,7 +19,11 @@ export default class MessagesListItem extends PureComponent {
 		id: PropTypes.string.isRequired,
 		message: PropTypes.string.isRequired,
 		time: PropTypes.string.isRequired,
-		my: PropTypes.bool.isRequired,
+		my: PropTypes.bool,
+
+		contactId: PropTypes.string,
+		contactName: PropTypes.string,
+		contactAvatarUrl: PropTypes.string,
 	}
 
 	render () {
@@ -28,7 +34,13 @@ export default class MessagesListItem extends PureComponent {
 					this.props.my && `${baseCssClass}__m-my`,
 				])}
 			>
+				{ this.props.contactId /*this.props.contactAvatarUrl*/ && (
+					<div className={contactAvatarCssClass}><img src={this.props.contactAvatarUrl} alt={''} /></div>
+				) }
 				<div className={contentCssClass}>
+					{ this.props.contactName && (
+						<div className={contactNameCssClass}>{this.props.contactName}</div>
+					) }
 					<div className={messageCssClass}>{this.props.message}</div>
 					<div className={timeCssClass}>{this.props.time}</div>
 				</div>

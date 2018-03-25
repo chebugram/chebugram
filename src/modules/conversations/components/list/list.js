@@ -9,6 +9,7 @@ const baseCssClass = 'conversations-list';
 
 export default class ConversationsList extends Component {
 	static propTypes = {
+		currentConversationId: PropTypes.string,
 		conversations: PropTypes.arrayOf(
 			PropTypes.shape({
 				id: PropTypes.string.isRequired,
@@ -16,6 +17,7 @@ export default class ConversationsList extends Component {
 				readOnly: PropTypes.bool.isRequired,
 				entityId: PropTypes.string.isRequired,
 				lastUpdate: PropTypes.number.isRequired,
+				unreadMessages: PropTypes.number.isRequired,
 			})
 		).isRequired,
 
@@ -41,6 +43,9 @@ export default class ConversationsList extends Component {
 						id={conversation.id}
 						type={conversation.type}
 						entityId={conversation.entityId}
+						unreadMessages={conversation.unreadMessages}
+
+						selected={this.props.currentConversationId === conversation.id}
 
 						onClick={this._handleItemClick}
 					/>

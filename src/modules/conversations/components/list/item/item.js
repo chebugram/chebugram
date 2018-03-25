@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import classnames from 'classnames';
+
 import './styles/item.css';
 
 
@@ -14,6 +16,9 @@ export default class ConversationsListItem extends Component {
 		id: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,
 		image: PropTypes.string.isRequired,
+		unreadMessages: PropTypes.number.isRequired,
+
+		selected: PropTypes.bool.isRequired,
 
 		onClick: PropTypes.func,
 	};
@@ -35,13 +40,19 @@ export default class ConversationsListItem extends Component {
 
 		return (
 			<div
-				className={baseCssClass}
+				className={classnames([
+					baseCssClass,
+					this.props.selected && `${baseCssClass}__m-selected`,
+				])}
 				onClick={this._handleClick}
 			>
 				{ true /*image*/ && (
 					<div className={imageCssClass}><img src={image} alt={''} /></div>
 				) }
 				<div className={titleCssClass}>{this.props.title}</div>
+				{ (this.props.unreadMessages > 0) && (
+					<div>{this.props.unreadMessages}</div>
+				)}
 			</div>
 		);
 	}

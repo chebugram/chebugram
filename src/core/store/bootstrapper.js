@@ -24,6 +24,8 @@ import contactsReducer from '../../modules/contacts/reducers';
 import conversationsReducer from '../../modules/conversations/reducers';
 import messagesReducer from '../../modules/messages/reducers';
 
+import middlewaresMiddleware from '../../modules/conversations/middlewares';
+
 
 function getReducer () {
 	return combineReducers({
@@ -42,6 +44,7 @@ function getReducer () {
 function getMiddlewares () {
   return [
       reduxThunkMiddleware,
+	  middlewaresMiddleware,
   ];
 }
 

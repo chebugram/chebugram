@@ -22,7 +22,7 @@ export const selectConversationsCurrent = (state) => selectConversations(state).
 /**
  * @param {StoreState} state
  * @param {Object} options
- * @param {string} options.id
+ * @param {StoreConversation.id} options.id
  *
  * @returns {StoreConversation}
  */
