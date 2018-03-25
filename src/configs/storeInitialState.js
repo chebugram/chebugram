@@ -47,7 +47,7 @@ export default {
 				"type": CONVERSATION_TYPE__CONTACT,
 				"readOnly": false,
 				"entityId": "king",
-				"lastUpdate": (now + 10),
+				"lastUpdate": (now - 2 * 86400 * 1000) + 60,
 				"unreadMessages": 0,
 			},
 			"2": {
@@ -55,7 +55,7 @@ export default {
 				"type": CONVERSATION_TYPE__CONTACT,
 				"readOnly": true,
 				"entityId": "29",
-				"lastUpdate": (now + 9),
+				"lastUpdate": (now - 5 * 86400 * 1000),
 				"unreadMessages": 0,
 			},
 			"3": {

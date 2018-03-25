@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import {
+	getConversationTime,
+} from '../../utils';
+
 import ConversationsListItem from './item';
 
 
@@ -44,6 +48,7 @@ export default class ConversationsList extends Component {
 						type={conversation.type}
 						entityId={conversation.entityId}
 						unreadMessages={conversation.unreadMessages}
+						lastUpdate={getConversationTime(conversation.lastUpdate)}
 
 						selected={this.props.currentConversationId === conversation.id}
 

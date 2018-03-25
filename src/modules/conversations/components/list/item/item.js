@@ -8,7 +8,13 @@ import './styles/item.css';
 
 const baseCssClass = 'conversations-list-item';
 const imageCssClass = `${baseCssClass}__image`;
+const contentCssClass = `${baseCssClass}__content`;
+const headerCssClass = `${baseCssClass}__header`;
+const footerCssClass = `${baseCssClass}__footer`;
 const titleCssClass = `${baseCssClass}__title`;
+const metaCssClass = `${baseCssClass}__meta`;
+const lastUpdateCssClass = `${baseCssClass}__last-update`;
+const unreadMessagesCountCssClass = `${baseCssClass}__unread-messages-count`;
 
 
 export default class ConversationsListItem extends Component {
@@ -17,6 +23,7 @@ export default class ConversationsListItem extends Component {
 		title: PropTypes.string.isRequired,
 		image: PropTypes.string.isRequired,
 		unreadMessages: PropTypes.number.isRequired,
+		lastUpdate: PropTypes.string.isRequired,
 
 		selected: PropTypes.bool.isRequired,
 
@@ -46,13 +53,24 @@ export default class ConversationsListItem extends Component {
 				])}
 				onClick={this._handleClick}
 			>
+
 				{ true /*image*/ && (
 					<div className={imageCssClass}><img src={image} alt={''} /></div>
 				) }
-				<div className={titleCssClass}>{this.props.title}</div>
-				{ (this.props.unreadMessages > 0) && (
-					<div>{this.props.unreadMessages}</div>
-				)}
+				<div className={contentCssClass}>
+					<div className={headerCssClass}>
+						<div className={titleCssClass}>{this.props.title}</div>
+						<div className={lastUpdateCssClass}>{this.props.lastUpdate}</div>
+					</div>
+					<div className={footerCssClass}>
+						<div className={metaCssClass} />
+						{ (this.props.unreadMessages > 0) && (
+							<div className={unreadMessagesCountCssClass}>{this.props.unreadMessages}</div>
+						)}
+					</div>
+				</div>
+
+
 			</div>
 		);
 	}

@@ -19,13 +19,66 @@
 }
 
 .conversations-list-item__image {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background: #222222;
     border-radius: 50%;
+
+    flex: 0 0 auto;
+}
+
+.conversations-list-item__content {
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    overflow: hidden;
+}
+
+.conversations-list-item__header {
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .conversations-list-item__title {
-    height: 30px;
+    height: 20px;
     padding-left: 10px;
+
+    flex: 1 1 auto;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-size: 14px;
+}
+
+.conversations-list-item__footer {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.conversations-list-item__meta {
+    flex: 1 1 auto;
+}
+
+.conversations-list-item__unread-messages-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20px;
+    height: 20px;
+
+    flex: 0 0 auto;
+    font-size: 12px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.conversations-list-item__last-update {
+    font-size: 13px;
+    padding-top: 1px;
 }
