@@ -29,7 +29,7 @@ export default class MessagesEditor extends Component {
 				<div className={textFieldWrapperCssClass}>
 					<textarea
 						className={textFieldCssClass}
-						placeholder={'Type your message'}
+						placeholder={'Ваше сообщение'}
 						value={this.props.message}
 
 						onChange={this._handleMessageChange}

@@ -11,11 +11,11 @@
 }
 
 .conversations-list-item__m-selected {
-    background: #ccc;
+    background: #98b1e8;
 }
 
 .conversations-list-item:hover {
-    background: #ccc;
+    background: #98b1e8;
 }
 
 .conversations-list-item__image {

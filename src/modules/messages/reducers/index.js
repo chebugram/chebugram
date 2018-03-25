@@ -8,6 +8,7 @@
  * @property {string} id
  * @property {string} message
  * @property {boolean} my
+ * @property {number} time
  */
 
 

@@ -28,7 +28,7 @@
 	width: 300px;
 	height: 100%;
 
-	background: #eee;
+	background: #ff7aab;
 	flex: 0 0 auto;
 	overflow: hidden;
 }
@@ -37,4 +37,6 @@
 	flex: 1 1 auto;
 
 	height: 100%;
+
+	background: #eee;
 }

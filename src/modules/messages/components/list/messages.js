@@ -10,6 +10,10 @@ import {
 	getLocalizedName,
 } from '../../../../core/locale/utils';
 
+import {
+	getMessageTime,
+} from '../../utils';
+
 import MessagesListItem from './item';
 
 import './styles/messages.css';
@@ -45,7 +49,7 @@ export default class ConversationsCurrentMessages extends Component {
 				id={message.id}
 				message={message.message}
 				my={message.my}
-				time={'12:23'}
+				time={getMessageTime(message.time)}
 			/>
 		));
 	}
@@ -57,7 +61,7 @@ export default class ConversationsCurrentMessages extends Component {
 				id:message.id,
 				message: message.message,
 				my: (message.my === true),
-				time: '12:23',
+				time: getMessageTime(message.time),
 			};
 
 			if ( !props.my ) {
