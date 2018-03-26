@@ -7,6 +7,8 @@ import {
 
 import ConversationsListItem from './item';
 
+import './styles/list.css';
+
 
 const baseCssClass = 'conversations-list';
 

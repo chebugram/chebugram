@@ -113,6 +113,7 @@ export default class ConversationsCurrent extends Component {
 				{ !this.props.readOnly && (
 					<div className={footerCssClass}>
 						<Editor
+							key={this.props.id}
 							message={this.state.message}
 
 							onMessageChange={this._handleMessageChange}

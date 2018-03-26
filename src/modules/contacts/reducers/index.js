@@ -31,6 +31,7 @@ export default function (state = {}, action) {
 				[action.payload.id]: action.payload,
 			};
 		}
+
 		default:
 			return state;
 	}

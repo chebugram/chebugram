@@ -28,6 +28,7 @@ export default class AppEntry extends Component {
 					{ this.props.currentConversationId && (
 						<div className={currentConversationCssClass}>
 							<ConversationsCurrent
+								key={this.props.currentConversationId}
 								id={this.props.currentConversationId}
 							/>
 						</div>

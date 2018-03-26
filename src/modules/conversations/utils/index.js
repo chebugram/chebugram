@@ -31,7 +31,7 @@ export function getEntityProps (options) {
 			const channel = selectChannel(options.state, { id: options.entityId });
 			return {
 				title: channel.name,
-				image: '',
+				image: channel.image,
 			};
 		default:
 			throw new Error(`unsupported entity type: ${options.type}`);

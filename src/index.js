@@ -16,7 +16,7 @@ import 'moment/locale/ru';
 import spamBot from './core/bot';
 
 import { Provider } from 'react-redux';
-import AppEntry from './modules/app/components/entry';
+import App from './modules/app/components/app';
 
 import './index.css';
 
@@ -31,7 +31,7 @@ spamBot(store, 5000);
 
 ReactDOM.render((
 	<Provider store={store}>
-		<AppEntry />
+		<App />
 	</Provider>
 ), document.getElementById('root'));
 registerServiceWorker();

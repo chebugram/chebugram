@@ -13,17 +13,23 @@ export default class ConversationsCurrentHeader extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
 		image: PropTypes.string.isRequired,
+
+		onImageClick: PropTypes.func,
 	};
 
 	render () {
 		const {
 			image,
+			onImageClick,
 		} = this.props;
 
 		return (
 			<div className={baseCssClass}>
-				{ true/*image*/ && (
-					<div className={imageCssClass}><img src={image} alt={''} /></div>
+				{ image && (
+					<div
+						className={imageCssClass}
+						onClick={onImageClick}
+					><img src={image} alt={''} /></div>
 				) }
 				<div className={titleCssClass}>{this.props.title}</div>
 			</div>

@@ -1,6 +1,7 @@
 /**
  * @typedef {Object} StoreState
  *
+ * @property {StoreAppState} app
  * @property {StoreChannelsState} channels
  * @property {StoreContactsState} contacts
  * @property {StoreConversationsState} conversations
@@ -19,6 +20,7 @@ import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 
 import reduxThunkMiddleware from 'redux-thunk';
 
+import appReducer from '../../modules/app/reducers';
 import channelsReducer from '../../modules/channels/reducers';
 import contactsReducer from '../../modules/contacts/reducers';
 import conversationsReducer from '../../modules/conversations/reducers';
@@ -31,6 +33,7 @@ import censorMiddleware from '../censor/censorMiddleware';
 
 function getReducer () {
 	return combineReducers({
+		app: appReducer,
 		channels: channelsReducer,
 		contacts: contactsReducer,
 		conversations: conversationsReducer,

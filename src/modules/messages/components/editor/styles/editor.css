@@ -2,7 +2,8 @@
     display: flex;
     flex-flow: row nowrap;
 
-    background: #ccc;
+    background: #eee;
+    border-top: 2px #fff solid;
 }
 
 .message-editor__text-field-wrapper {
@@ -37,5 +38,13 @@
     align-items: center;
     justify-content: center;
 
-    width: 70px;
+    width: 40px;
+}
+
+.message-editor__add-button {
+    width: 30px;
+    height: 30px;
+    background: url('../images/play.svg') no-repeat center;
+
+    cursor: pointer;
 }
