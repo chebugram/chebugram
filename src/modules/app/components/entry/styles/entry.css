@@ -23,7 +23,7 @@
 
 	border: 2px #ececec solid;
 	padding: 2px;
-	box-shadow: 0 0 20px 0px rgba(0,0,0,.3);
+	box-shadow: 0 0 20px rgba(0,0,0,.3);
 
 	overflow: hidden;
 }
@@ -34,6 +34,17 @@
 
 	flex: 0 0 auto;
 	overflow: hidden;
+
+	transition: width 0.2s 0s ease-in;
+}
+
+.app-entry__conversations-header {
+	height: 40px;
+	background-color: #fff;
+}
+
+.app-entry__conversations__m-hidden {
+	width: 0 !important;
 }
 
 .app-entry__current-conversation {

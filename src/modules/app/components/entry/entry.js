@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import ConversationsList from '../../../conversations/components/list';
 import ConversationsCurrent from '../../../conversations/components/current';
@@ -23,11 +24,14 @@ export default class AppEntry extends Component {
 		return (
 			<div className={baseCssClass}>
 				<div className={contentCssClass}>
-					{ this.props.showConversationList && (
-						<div className={conversationsCssClass}>
-							<ConversationsList />
-						</div>
-					) }
+					<div
+						className={classnames([
+							conversationsCssClass,
+							!this.props.showConversationList && `${conversationsCssClass}__m-hidden`,
+						])}
+					>
+						<ConversationsList />
+					</div>
 					{ this.props.currentConversationId && (
 						<div className={currentConversationCssClass}>
 							<ConversationsCurrent

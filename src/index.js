@@ -4,12 +4,11 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 import { configureStore } from './core/store/bootstrapper';
-
 import initialState from './configs/storeInitialState';
 
-import {
-	setLocale,
-} from './core/locale/utils';
+import { setLocale } from './core/locale/utils';
+import { isSmallScreen } from './core/utils';
+import { showContersationList } from './modules/app/actions';
 
 import 'moment/locale/ru';
 
@@ -22,6 +21,10 @@ import './index.css';
 
 
 const store = configureStore({ initialState });
+
+if ( isSmallScreen() ) {
+	store.dispatch(showContersationList(false));
+}
 
 setLocale('ru');
 

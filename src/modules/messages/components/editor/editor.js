@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { isSmallScreen } from '../../../../core/utils';
+
 import './styles/editor.css';
 
 
@@ -26,13 +28,17 @@ export default class MessagesEditor extends Component {
 	}
 
 	componentDidMount () {
-		if ( this._textFieldEl ) {
+		if ( this._textFieldEl && !isSmallScreen() ) {
 			this._textFieldEl.focus();
 		}
 	}
 
 	componentWillReceiveProps (nextProps) {
-		if ( nextProps.message.length === 0 && this.props.message.length > 0 ) {
+		if (
+			nextProps.message.length === 0 &&
+			this.props.message.length > 0 &&
+			!isSmallScreen()
+		) {
 			if ( this._textFieldEl ) {
 				this._textFieldEl.focus();
 			}
