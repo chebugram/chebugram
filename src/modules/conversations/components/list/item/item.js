@@ -54,7 +54,7 @@ export default class ConversationsListItem extends Component {
 				onClick={this._handleClick}
 			>
 
-				{ true /*image*/ && (
+				{ image && (
 					<div className={imageCssClass}><img src={image} alt={''} /></div>
 				) }
 				<div className={contentCssClass}>
@@ -65,7 +65,9 @@ export default class ConversationsListItem extends Component {
 					<div className={footerCssClass}>
 						<div className={metaCssClass} />
 						{ (this.props.unreadMessages > 0) && (
-							<div className={unreadMessagesCountCssClass}>{this.props.unreadMessages}</div>
+							<div className={unreadMessagesCountCssClass}>
+								{(this.props.unreadMessages < 100 ? this.props.unreadMessages : '99+')}
+							</div>
 						)}
 					</div>
 				</div>

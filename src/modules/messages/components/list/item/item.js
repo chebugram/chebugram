@@ -41,7 +41,13 @@ export default class MessagesListItem extends PureComponent {
 					{ this.props.contactName && (
 						<div className={contactNameCssClass}>{this.props.contactName}</div>
 					) }
-					<div className={messageCssClass}>{this.props.message}</div>
+					<div
+						className={messageCssClass}
+
+						dangerouslySetInnerHTML={{
+							__html: this.props.message
+						}}
+					/>
 					<div className={timeCssClass}>{this.props.time}</div>
 				</div>
 			</div>

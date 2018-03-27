@@ -36,6 +36,12 @@ export default class ConversationsCurrent extends Component {
 		};
 	}
 
+	componentDidMount () {
+		if ( this._messagesEl && this._messagesEl.scrollHeight > 0 ) {
+			this._messagesEl.scrollTop = this._messagesEl.scrollHeight;
+		}
+	}
+
 	componentWillUnmount () {
 		this._messagesEl = null;
 	}

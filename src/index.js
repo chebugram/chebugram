@@ -30,7 +30,9 @@ setLocale('ru');
 
 console.dir(store.getState());
 
-spamBot(store, 5000);
+const botTerminateCallback = spamBot(store, 5000);
+
+setTimeout(botTerminateCallback, 1000 * 60 * 10);
 
 ReactDOM.render((
 	<Provider store={store}>

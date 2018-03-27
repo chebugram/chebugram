@@ -13,8 +13,10 @@ import Messages from './messages';
 
 
 export default connect((state, { id, type }) => {
+	const messages = (selectMessagesForConversation(state, { conversationId: id }) || []);
+
 	const result = {
-		messages: (selectMessagesForConversation(state, { conversationId: id }) || []),
+		messages: messages.slice(-50),
 	};
 
 	// TODO: Move to map
