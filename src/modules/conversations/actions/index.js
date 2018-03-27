@@ -20,7 +20,7 @@ export function addConversation (data) {
 }
 
 /**
- * @param {StoreConversationsCurrentState} id
+ * @param {StoreConversationsCurrentState|null} id
  *
  * @returns {function(StoreActionParams):undefined}
  */

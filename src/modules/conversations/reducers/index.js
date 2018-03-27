@@ -50,6 +50,13 @@ function list (state = {}, action) {
 		// WORKAROUND: reset message count to zero every time when open conversation
 		case ACTION__CONVERSATIONS__SET_CONVERSATION: {
 			const conversationId = action.payload;
+
+			if ( conversationId === null ) {
+				return {
+					...state,
+				};
+			}
+
 			return {
 				...state,
 				[conversationId]: {

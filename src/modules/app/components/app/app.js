@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import classnames from 'classnames';
+import { isSmallScreen } from '../../../../core/utils';
+
 import Entry from '../entry';
 
 import './styles/app.css';
@@ -35,7 +38,12 @@ export default class AppEntry extends Component {
 
 	render () {
 		return (
-			<div className={baseCssClass}>
+			<div
+				className={classnames([
+					baseCssClass,
+					isSmallScreen() && `${baseCssClass}__m-small-screen`,
+				])}
+			>
 				{this._renderModalImage()}
 				<Entry />
 			</div>

@@ -1,8 +1,15 @@
+import { connect } from 'react-redux';
+
 import {
 	selectConversationsByLastUpdate,
 	selectConversationsCurrent,
 } from '../../selectors';
-import { connect } from 'react-redux';
+
+import {
+	showContersationList,
+} from '../../../app/actions';
+
+import { isSmallScreen } from '../../../../core/utils';
 
 import { setCurrentConversation } from '../../actions';
 
@@ -15,5 +22,11 @@ export default connect((state) => {
  	conversations: selectConversationsByLastUpdate(state),
  };
 }, (dispatch) => ({
-	onOpenConversation: (id) => dispatch(setCurrentConversation(id)),
+	onOpenConversation: (id) => {
+		dispatch(setCurrentConversation(id));
+
+		if ( isSmallScreen() ) {
+			dispatch(showContersationList(false));
+		}
+	},
 }))(List);

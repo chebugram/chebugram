@@ -18,6 +18,10 @@
     font-size: 14px;
 }
 
+.messages-list-item__m-my .messages-list-item__content {
+    background: #ecb6de;
+}
+
 .messages-list-item__time {
     text-align: right;
 

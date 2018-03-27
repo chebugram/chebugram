@@ -123,10 +123,10 @@ export default {
 				"time": new Date('2008-02-08 15:42').valueOf(),
 			},
 		],
-		"50": [
+		"2": [
 			{
-				"id": "3",
-				"message": "Aga",
+				"id": "88",
+				"message": "Тест",
 				"time": now,
 			}
 		]

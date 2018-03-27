@@ -29,6 +29,20 @@
 }
 
 .conversations-current-header__title {
-    height: 30px;
+    display: flex;
+    align-items: center;
+
     padding-left: 10px;
+
+    cursor: pointer;
+}
+
+.conversations-current-header__show-conversation-list-button {
+    width: 30px;
+    height: 100%;
+    margin-right: 10px;
+
+    background: url('../images/arrow-left.svg') no-repeat center;
+
+    cursor: pointer;
 }

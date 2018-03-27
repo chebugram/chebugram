@@ -15,6 +15,7 @@ const currentConversationCssClass = `${baseCssClass}__current-conversation`;
 
 export default class AppEntry extends Component {
 	static propTypes = {
+		showConversationList: PropTypes.bool.isRequired,
 		currentConversationId: PropTypes.string,
 	};
 
@@ -22,9 +23,11 @@ export default class AppEntry extends Component {
 		return (
 			<div className={baseCssClass}>
 				<div className={contentCssClass}>
-					<div className={conversationsCssClass}>
-						<ConversationsList />
-					</div>
+					{ this.props.showConversationList && (
+						<div className={conversationsCssClass}>
+							<ConversationsList />
+						</div>
+					) }
 					{ this.props.currentConversationId && (
 						<div className={currentConversationCssClass}>
 							<ConversationsCurrent

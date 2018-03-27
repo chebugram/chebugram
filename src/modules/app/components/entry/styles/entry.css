@@ -43,3 +43,18 @@
 
 	background: #d3e7ec;
 }
+
+.app__m-small-screen .app-entry__content {
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+
+	border: none;
+	padding: 0;
+	box-shadow: none;
+}
+
+.app__m-small-screen .app-entry__conversations {
+	width: 100%;
+}

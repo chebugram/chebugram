@@ -1,3 +1,7 @@
 .conversations-list {
     padding-right: 2px;
 }
+
+.app__m-small-screen .conversations-list {
+    padding-right: 0;
+}
