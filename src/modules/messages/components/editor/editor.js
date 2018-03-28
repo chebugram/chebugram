@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { isSmallScreen } from '../../../../core/utils';
+import { APP_PLATFORM__DESKTOP } from '../../../../core/constants';
 
 import './styles/editor.css';
 
@@ -16,6 +16,7 @@ const addButtonCssClass = `${baseCssClass}__add-button`;
 export default class MessagesEditor extends Component {
 	static propTypes = {
 		message: PropTypes.string.isRequired,
+		platform: PropTypes.string.isRequired,
 
 		onMessageChange: PropTypes.func.isRequired,
 		onAddMessage: PropTypes.func,
@@ -28,7 +29,7 @@ export default class MessagesEditor extends Component {
 	}
 
 	componentDidMount () {
-		if ( this._textFieldEl && !isSmallScreen() ) {
+		if ( this._textFieldEl && this.props.platform === APP_PLATFORM__DESKTOP ) {
 			this._textFieldEl.focus();
 		}
 	}
@@ -37,7 +38,7 @@ export default class MessagesEditor extends Component {
 		if (
 			nextProps.message.length === 0 &&
 			this.props.message.length > 0 &&
-			!isSmallScreen()
+			this.props.platform === APP_PLATFORM__DESKTOP
 		) {
 			if ( this._textFieldEl ) {
 				this._textFieldEl.focus();
@@ -54,8 +55,13 @@ export default class MessagesEditor extends Component {
 	};
 
 	_handleTextFieldKeyDown = (event) => {
-		if ( event.ctrlKey && event.key === 'Enter' ) {
-			this.props.onAddMessage();
+		if ( event.key === 'Enter' ) {
+			if ( !event.ctrlKey ) {
+				event.preventDefault();
+				this.props.onAddMessage();
+			} else {
+				this.props.onMessageChange(this.props.message + '\n');
+			}
 		}
 	};
 

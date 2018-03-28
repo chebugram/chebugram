@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import classnames from 'classnames';
-import { isSmallScreen } from '../../../../core/utils';
+
+import { APP_PLATFORM__MOBILE } from '../../../../core/constants';
 
 import Entry from '../entry';
 
@@ -19,8 +20,22 @@ export default class AppEntry extends Component {
 			opened: PropTypes.bool.isRequired,
 			image: PropTypes.string,
 		}).isRequired,
+		platform: PropTypes.string.isRequired,
 
 		onCloseModalImage: PropTypes.func.isRequired,
+	};
+
+	componentDidMount () {
+		// TODO add lodash debounce
+		window.addEventListener('resize', this._handleWindowResize, false);
+	}
+
+	componentWillUnmount () {
+		window.removeEventListener('resize', this._handleWindowResize, false);
+	}
+
+	_handleWindowResize = () => {
+		this.forceUpdate();
 	};
 
 	_renderModalImage () {
@@ -41,7 +56,7 @@ export default class AppEntry extends Component {
 			<div
 				className={classnames([
 					baseCssClass,
-					isSmallScreen() && `${baseCssClass}__m-small-screen`,
+					this.props.platform === APP_PLATFORM__MOBILE && `${baseCssClass}__m-small-screen`,
 				])}
 			>
 				{this._renderModalImage()}

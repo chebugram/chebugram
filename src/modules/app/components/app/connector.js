@@ -19,6 +19,7 @@ export default connect((state) => {
 				: ''
 			),
 		},
+		platform: app.platform,
 	};
 }, (dispatch) => ({
 	onCloseModalImage: () => dispatch(closeImageModal()),

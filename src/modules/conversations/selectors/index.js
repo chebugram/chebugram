@@ -36,6 +36,7 @@ export const selectConversation = (state, options) => selectConversationsList(st
 export const selectConversationsByLastUpdate = (state) => {
 	const conversations = selectConversationsList(state);
 
-	return Object.values(conversations)
+	return Object.keys(conversations)
+		.map((key) => conversations[key])
 		.sort((a, b) => (b.lastUpdate - a.lastUpdate));
 };

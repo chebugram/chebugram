@@ -9,8 +9,6 @@ import {
 	showContersationList,
 } from '../../../app/actions';
 
-import { isSmallScreen } from '../../../../core/utils';
-
 import { setCurrentConversation } from '../../actions';
 
 import List from './list';
@@ -24,9 +22,5 @@ export default connect((state) => {
 }, (dispatch) => ({
 	onOpenConversation: (id) => {
 		dispatch(setCurrentConversation(id));
-
-		if ( isSmallScreen() ) {
-			dispatch(showContersationList(false));
-		}
 	},
 }))(List);

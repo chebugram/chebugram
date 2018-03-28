@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.5",
+    "core-js": "^2.5.4",
     "moment": "^2.21.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",

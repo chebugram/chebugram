@@ -1,3 +1,5 @@
+import './core/utils/polyfills';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -7,8 +9,7 @@ import { configureStore } from './core/store/bootstrapper';
 import initialState from './configs/storeInitialState';
 
 import { setLocale } from './core/locale/utils';
-import { isSmallScreen } from './core/utils';
-import { showContersationList } from './modules/app/actions';
+import { checkPlatform, monitor } from './core/utils/platformMonitor';
 
 import 'moment/locale/ru';
 
@@ -22,16 +23,15 @@ import './index.css';
 
 const store = configureStore({ initialState });
 
-if ( isSmallScreen() ) {
-	store.dispatch(showContersationList(false));
-}
+checkPlatform({ store });
+monitor({ store });
 
 setLocale('ru');
 
-console.dir(store.getState());
+// console.dir(store.getState());
 
 const botTerminateCallback = spamBot(store, 5000);
-
+// we don't want to take all memory
 setTimeout(botTerminateCallback, 1000 * 60 * 10);
 
 ReactDOM.render((

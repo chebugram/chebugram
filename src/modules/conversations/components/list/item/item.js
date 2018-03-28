@@ -53,7 +53,6 @@ export default class ConversationsListItem extends Component {
 				])}
 				onClick={this._handleClick}
 			>
-
 				{ image && (
 					<div className={imageCssClass}><img src={image} alt={''} /></div>
 				) }

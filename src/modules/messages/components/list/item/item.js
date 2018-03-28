@@ -34,7 +34,7 @@ export default class MessagesListItem extends PureComponent {
 					this.props.my && `${baseCssClass}__m-my`,
 				])}
 			>
-				{ this.props.contactId /*this.props.contactAvatarUrl*/ && (
+				{ this.props.contactAvatarUrl && (
 					<div className={contactAvatarCssClass}><img src={this.props.contactAvatarUrl} alt={''} /></div>
 				) }
 				<div className={contentCssClass}>
