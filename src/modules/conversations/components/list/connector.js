@@ -5,10 +5,6 @@ import {
 	selectConversationsCurrent,
 } from '../../selectors';
 
-import {
-	showContersationList,
-} from '../../../app/actions';
-
 import { setCurrentConversation } from '../../actions';
 
 import List from './list';
